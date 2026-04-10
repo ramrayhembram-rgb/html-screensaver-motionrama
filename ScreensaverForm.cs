@@ -107,7 +107,7 @@ namespace HtmlScreensaver
         }
 
         // ── Load ─────────────────────────────────────────────────
-        private async void OnLoad(object sender, EventArgs e)
+        private async void OnLoad(xcvvobject sender, EventArgs e)
         {
             try
             {
