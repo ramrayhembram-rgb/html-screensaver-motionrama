@@ -11,9 +11,9 @@
     <SelfContained>true</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <StartupObject>HtmlScreensaver.Program</StartupObject>
     <Version>1.0.0</Version>
     <Product>HTML Screensaver</Product>
-    <Description>Windows screensaver that displays local HTML pages via WebView2</Description>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2365.46" />
