@@ -13,10 +13,19 @@ namespace HtmlScreensaver
         private WebView2 _webView;
         private ExitButton _exitButton;
         private System.Windows.Forms.Timer _hoverFadeTimer;
+        private static readonly Cursor _blankCursor = CreateBlankCursor();
 
         private bool _isFirstMouseEvent = true;
         private Point _firstMousePos;
         private bool _exitButtonVisible = false;
+
+        // Creates a fully transparent 1x1 cursor to hide the mouse pointer
+        private static Cursor CreateBlankCursor()
+        {
+            var bmp = new Bitmap(1, 1);
+            bmp.SetPixel(0, 0, Color.Transparent);
+            return new Cursor(bmp.GetHicon());
+        }
 
         // ── Constructor ──────────────────────────────────────────
         public ScreensaverForm(Rectangle bounds)
@@ -28,7 +37,7 @@ namespace HtmlScreensaver
             this.Bounds = bounds;
             this.TopMost = true;
             this.BackColor = Color.Black;
-            this.Cursor = Cursors.None;
+            this.Cursor = _blankCursor;
             this.ShowInTaskbar = false;
 
             InitWebView();
@@ -107,7 +116,7 @@ namespace HtmlScreensaver
         }
 
         // ── Load ─────────────────────────────────────────────────
-        private async void OnLoad(xcvvobject sender, EventArgs e)
+        private async void OnLoad(object sender, EventArgs e)
         {
             try
             {
@@ -222,7 +231,7 @@ align-items:center;justify-content:center;height:100vh;'>
             {
                 _exitButton.Visible = false;
                 _exitButtonVisible = false;
-                this.Cursor = Cursors.None;
+                this.Cursor = _blankCursor;
             });
         }
 
