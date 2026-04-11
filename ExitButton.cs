@@ -40,7 +40,6 @@ namespace HtmlScreensaver
             this.SetStyle(
                 ControlStyles.SupportsTransparentBackColor |
                 ControlStyles.UserPaint |
-                ControlStyles.AllPaintingInWmErase |
                 ControlStyles.OptimizedDoubleBuffer,
                 true);
 
