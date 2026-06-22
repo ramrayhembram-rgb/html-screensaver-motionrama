@@ -9,7 +9,6 @@ namespace HtmlScreensaver
     {
         private ScreensaverSettings _settings;
 
-        // Controls
         private TextBox _pathBox;
         private Button _browseBtn;
         private CheckBox _useLocalhostChk;
@@ -65,7 +64,6 @@ namespace HtmlScreensaver
             Controls.Add(_portSpinner);
             y += 32;
 
-            // Separator
             AddSeparator(y); y += 16;
 
             // ── Exit Button Mode ──────────────────────────────────
@@ -106,14 +104,13 @@ namespace HtmlScreensaver
             Controls.Add(_mouseMoveSpinner);
             y += 32;
 
-            // Separator
             AddSeparator(y); y += 16;
 
-            // ── Corner ───────────────────────────────────────────
-            AddLabel("Button corner:", lx, y, bold: true);
+            // ── Exit Button Position (renamed from Button corner) ─
+            AddLabel("Exit button position:", lx, y, bold: true);
             _cornerCombo = new ComboBox
             {
-                Left = cx, Top = y - 2, Width = 160,
+                Left = cx + 60, Top = y - 2, Width = 160,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
             _cornerCombo.Items.AddRange(new[] { "Top right", "Top left", "Bottom right", "Bottom left" });
@@ -224,7 +221,6 @@ namespace HtmlScreensaver
             SaveUIToSettings();
             _settings.Save();
 
-            // Launch screensaver for 5 seconds then auto-close
             var testForm = new ScreensaverForm(Screen.PrimaryScreen.Bounds);
             var killTimer = new System.Windows.Forms.Timer { Interval = 5000 };
             killTimer.Tick += (ts, te) => { killTimer.Stop(); testForm.Close(); };
